@@ -1,0 +1,15 @@
+@(product: Product)
+
+@main("Product Manager") {
+    <h2>Information about product - @product</h2>
+    <div>
+        <ul>
+            <li>
+                @product.id
+                @product.name
+                @product.price
+                @product.productType
+            </li>
+        </ul>
+    </div>
+}

@@ -1,0 +1,30 @@
+@(products: Seq[Product])
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Product list</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Product Type</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @products.map { product =>
+                    <tr>
+                        <td>@product.id</td>
+                        <td>@product.name</td>
+                        <td>@product.productType</td>
+                        <td>@product.price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </body>
+</html>
