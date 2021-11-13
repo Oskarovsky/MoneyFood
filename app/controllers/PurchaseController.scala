@@ -4,6 +4,8 @@ import models.Purchase
 import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents}
 
 import java.io.File
+import java.util.Date
+import java.util.concurrent.TimeUnit
 import javax.inject.{Inject, Singleton}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -23,8 +25,13 @@ class PurchaseController @Inject()(cc: ControllerComponents) extends AbstractCon
 
   def getPurchaseReport(fileName: String): Action[AnyContent] = Action.async {
     Future {
-      Ok(s"New report edited on ")
-      File
+      val file:File = new File(fileName)
+      if (file.exists()) {
+        val info = file.lastModified()
+        Ok(s"New report edited on ${new Date(info)}")
+      }
+      else
+        NoContent
     }
   }
 

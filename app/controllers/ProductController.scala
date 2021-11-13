@@ -53,7 +53,7 @@ class ProductController @Inject()(val controllerComponents: ControllerComponents
   }
 
   def getProductById(productId: Int): Action[AnyContent] = Action {
-    val foundProduct = productList.find(_.id == productId)
+    val foundProduct = Product.getProductById(productId).find(_.id == productId)
     foundProduct match {
       case Some(product) => Ok(Json.toJson(product))
       case None => NotFound

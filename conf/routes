@@ -9,7 +9,6 @@ GET     /product                     controllers.ProductController.productsList(
 GET     /purchase                    controllers.PurchaseController.purchasesList
 GET     /product/:productId          controllers.ProductController.productInfo(productId: Int)
 
-POST    /user/subscribe         controllers.UserController.subscribe
 
 # API
 
@@ -17,4 +16,8 @@ GET     /api/product                    controllers.ProductController.getProduct
 GET     /api/product/:productId          controllers.ProductController.getProductById(productId: Int)
 GET     /api/product/type/:productType   controllers.ProductController.getProductsByType(productType: String)
 
+GET     /api/config     controllers.ConfigController.getConfig
+
+GET     /api/user/:userId         controllers.UserController.getUserById(userId: Long)
+POST    /api/user/subscribe         controllers.UserController.subscribe
 #->     /products                    routers.ProductRouter.routes
